@@ -23,8 +23,8 @@ public class LinkedList<T> implements List<T> {
 		}
 		
 		ListNode<T> lastNode = head;
-		while (lastNode.getNextNode() != null) {
-			lastNode = lastNode.getNextNode();
+		while (lastNode.getNext() != null) {
+			lastNode = lastNode.getNext();
 		}
 		return lastNode.getData();
 	}
@@ -32,15 +32,15 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public void insertFirst(T data) {
 		ListNode<T> node = new ListNode<T>(data);
-		node.setNextNode(head);
+		node.setNext(head);
 		head = node;
 	}
 
 	@Override
 	public void insertAfter(ListNode<T> currentNode, T data) {
 		ListNode<T> node = new ListNode<T>(data);
-		node.setNextNode(currentNode.getNextNode());
-		currentNode.setNextNode(node);
+		node.setNext(currentNode.getNext());
+		currentNode.setNext(node);
 	}
 
 	@Override
@@ -52,11 +52,11 @@ public class LinkedList<T> implements List<T> {
 			return;
 		}
 		ListNode<T> lastNode = head;
-		while (lastNode.getNextNode() != null) {
-			lastNode = lastNode.getNextNode();
+		while (lastNode.getNext() != null) {
+			lastNode = lastNode.getNext();
 		}
 		
-		lastNode.setNextNode(node);
+		lastNode.setNext(node);
 	}
 
 	@Override
@@ -64,7 +64,7 @@ public class LinkedList<T> implements List<T> {
 		if (isEmpty()) {
 			return;
 		}
-		head = head.getNextNode();
+		head = head.getNext();
 	}
 
 	@Override
@@ -73,11 +73,11 @@ public class LinkedList<T> implements List<T> {
 			return;
 		}
 		ListNode<T> secondLastNode = head;
-		while (secondLastNode.getNextNode() != null) {
-			if (secondLastNode.getNextNode().getNextNode() == null) {
-				secondLastNode.setNextNode(null);
+		while (secondLastNode.getNext() != null) {
+			if (secondLastNode.getNext().getNext() == null) {
+				secondLastNode.setNext(null);
 			} else {
-				secondLastNode = secondLastNode.getNextNode();
+				secondLastNode = secondLastNode.getNext();
 			}
 		}
 	}
@@ -85,10 +85,10 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public void deleteNext(ListNode<T> currentNode) {
 		
-		ListNode<T> nextNode = currentNode.getNextNode();
+		ListNode<T> nextNode = currentNode.getNext();
 		
 		if (nextNode != null) {
-			currentNode.setNextNode(nextNode.getNextNode());
+			currentNode.setNext(nextNode.getNext());
 		}
 	}
 
@@ -99,8 +99,8 @@ public class LinkedList<T> implements List<T> {
 		}
 		int count = 0;
 		ListNode<T> node = head;
-		while (node.getNextNode() != null) {
-			node = node.getNextNode();
+		while (node.getNext() != null) {
+			node = node.getNext();
 			count++;
 		}
 		return count;
@@ -112,5 +112,22 @@ public class LinkedList<T> implements List<T> {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		if (isEmpty()) {
+			return "";
+		}
+		
+		ListNode<T> lastNode = head;
+		
+		String string = head.getData().toString();
+		
+		while (lastNode.getNext() != null) {
+			lastNode = lastNode.getNext();
+			string += " -> " + lastNode.getData().toString();
+		}
+		return string;
 	}
 }

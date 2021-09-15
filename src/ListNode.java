@@ -5,7 +5,7 @@ public class ListNode<T> {
 	private T data;
 	
 	// the next node that this node points to
-	private ListNode<T> nextNode;
+	private ListNode<T> next;
 	
 	// constructor takes in data
 	public ListNode(T data) {
@@ -20,12 +20,12 @@ public class ListNode<T> {
 		this.data = data;
 	}
 
-	public ListNode<T> getNextNode() {
-		return nextNode;
+	public ListNode<T> getNext() {
+		return next;
 	}
 
-	public void setNextNode(ListNode<T> nextNode) {
-		this.nextNode = nextNode;
+	public void setNext(ListNode<T> nextNode) {
+		this.next = nextNode;
 	}
 	
 }
