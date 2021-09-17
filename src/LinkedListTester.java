@@ -39,6 +39,10 @@ class LinkedListTester {
 		
 		assertEquals("getLast test", "w", newList.getLast().toString());
 		
+		newList.deleteLast();
+		
+		assertEquals("deleteLast test", "e -> b", newList.toString());
+		
 	}
 
 }
