@@ -2,7 +2,7 @@
 public class LinkedList<T> implements List<T> {
 	
 	// first node of list
-	private ListNode<T> head;
+	private LinkedListNode<T> head;
 	
 	// returns data in first node
 	@Override
@@ -17,7 +17,7 @@ public class LinkedList<T> implements List<T> {
 	
 	// returns first node in list
 	@Override
-	public ListNode<T> getFirstNode() {
+	public LinkedListNode<T> getFirstNode() {
 		return head;
 	}
 	
@@ -30,7 +30,7 @@ public class LinkedList<T> implements List<T> {
 		}
 		
 		// find the last node
-		ListNode<T> lastNode = getFirstNode();
+		LinkedListNode<T> lastNode = getFirstNode();
 		while (lastNode.getNext() != null) {
 			lastNode = lastNode.getNext();
 		}
@@ -43,7 +43,7 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public void insertFirst(T data) {
 		// create new node with data
-		ListNode<T> node = new ListNode<T>(data);
+		LinkedListNode<T> node = new LinkedListNode<T>(data);
 		// point node to original first node
 		node.setNext(getFirstNode());
 		// set head to the newly created node
@@ -52,9 +52,9 @@ public class LinkedList<T> implements List<T> {
 	
 	// insert data after passed-in currentNode
 	@Override
-	public void insertAfter(ListNode<T> currentNode, T data) {
+	public void insertAfter(LinkedListNode<T> currentNode, T data) {
 		// create new node with data
-		ListNode<T> node = new ListNode<T>(data);
+		LinkedListNode<T> node = new LinkedListNode<T>(data);
 		// point node to currentNode's next node
 		node.setNext(currentNode.getNext());
 		// have current node point to newly created node
@@ -65,14 +65,14 @@ public class LinkedList<T> implements List<T> {
 	@Override
 	public void insertLast(T data) {
 		// create new node with data
-		ListNode<T> node = new ListNode<T>(data);
+		LinkedListNode<T> node = new LinkedListNode<T>(data);
 		// make head the newly created node if list is empty
 		if (isEmpty()) {
 			head = node;
 			return;
 		}
 		// find last node
-		ListNode<T> lastNode = head;
+		LinkedListNode<T> lastNode = head;
 		while (lastNode.getNext() != null) {
 			lastNode = lastNode.getNext();
 		}
@@ -99,7 +99,7 @@ public class LinkedList<T> implements List<T> {
 			return;
 		}
 		// find the second last node
-		ListNode<T> secondLastNode = head;
+		LinkedListNode<T> secondLastNode = head;
 		while (secondLastNode.getNext() != null) {
 			if (secondLastNode.getNext().getNext() == null) {
 				break;
@@ -113,10 +113,10 @@ public class LinkedList<T> implements List<T> {
 	
 	// deletes the node after currentNode
 	@Override
-	public void deleteNext(ListNode<T> currentNode) {
+	public void deleteNext(LinkedListNode<T> currentNode) {
 		
 		// get the node after currentNode
-		ListNode<T> nextNode = currentNode.getNext();
+		LinkedListNode<T> nextNode = currentNode.getNext();
 		
 		// if nextNode exists, then have currentNode point to the node after nextNode
 		if (nextNode != null) {
@@ -133,7 +133,7 @@ public class LinkedList<T> implements List<T> {
 		}
 		// loop through all elements in list while adding to count
 		int count = 0;
-		ListNode<T> node = head;
+		LinkedListNode<T> node = head;
 		while (node.getNext() != null) {
 			node = node.getNext();
 			count++;
@@ -159,7 +159,7 @@ public class LinkedList<T> implements List<T> {
 			return "";
 		}
 		
-		ListNode<T> lastNode = head;
+		LinkedListNode<T> lastNode = head;
 		
 		String string = head.getData().toString();
 		

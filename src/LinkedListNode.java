@@ -1,14 +1,14 @@
 
-public class ListNode<T> {
+public class LinkedListNode<T> {
 	
 	// data stored in node
 	private T data;
 	
 	// the next node that this node points to
-	private ListNode<T> next;
+	private LinkedListNode<T> next;
 	
 	// constructor takes in data
-	public ListNode(T data) {
+	public LinkedListNode(T data) {
 		this.setData(data);
 	}
 	
@@ -20,11 +20,11 @@ public class ListNode<T> {
 		this.data = data;
 	}
 
-	public ListNode<T> getNext() {
+	public LinkedListNode<T> getNext() {
 		return next;
 	}
 
-	public void setNext(ListNode<T> nextNode) {
+	public void setNext(LinkedListNode<T> nextNode) {
 		this.next = nextNode;
 	}
 	

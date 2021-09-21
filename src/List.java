@@ -5,7 +5,7 @@ public interface List<T> {
 	public T getFirst();
 	
 	// Get the head node of list
-	public ListNode<T> getFirstNode();
+	public LinkedListNode<T> getFirstNode();
 	
 	// Get data stored in tail node of list
 	public T getLast();
@@ -14,7 +14,7 @@ public interface List<T> {
 	public void insertFirst(T data);
 	
 	// Insert a new node with data after currentNode
-	public void insertAfter(ListNode<T> currentNode, T data);
+	public void insertAfter(LinkedListNode<T> currentNode, T data);
 	
 	// Insert a new node with data at the tail of list
 	public void insertLast(T data);
@@ -27,7 +27,7 @@ public interface List<T> {
 	
 	// Remove node following currentNode
 	// If no node exists, do nothing
-	public void deleteNext(ListNode<T> currentNode);
+	public void deleteNext(LinkedListNode<T> currentNode);
 	
 	// Get number of elements in list
 	public int size();
