@@ -132,7 +132,7 @@ public class LinkedList<T> implements List<T> {
 			return 0;
 		}
 		// loop through all elements in list while adding to count
-		int count = 0;
+		int count = 1;
 		LinkedListNode<T> node = head;
 		while (node.getNext() != null) {
 			node = node.getNext();
